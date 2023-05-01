@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자리 배치도</title>
+</head>
+<body>
+  <h1>자리 배치도</h1>
+  <script>
+    var seat01 = prompt("입장객수");
+    var seat02 = prompt("한줄에앉을사람수");
+    var resultSeat;
+
+    if(seat01%seat02 === 0){
+      resultSeat = parseInt(seat01/seat02);
+      //alert("총 좌석줄:"+resultSeat);
+    }else{
+      resultSeat = parseInt(seat01/seat02)+1;
+      //alert("총 좌석줄:"+resultSeat);
+    }
+    //document.write(resultSeat+"좌석 필요");
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 2</title>
+	<style>
+		body {
+			font-size:1.2em;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<h2>3의 배수 찾기</h2>
+	<script>
+		var num3Chk = parseInt(prompt("몇까지 3의배수 찾을거니?"));
+		var result = "";
+		var count = 0;
+		if (num3Chk !== null) {
+			for(var i = 1;i <= num3Chk; i++){
+				if(i % 3 == 0){
+					count++;
+					result += i+",";
+				}
+			}
+			document.write(result+"<br>");
+			document.write("3의배수 갯수는 "+count+"개다.")
+
+		}
+	</script>
+</body>
+</html>

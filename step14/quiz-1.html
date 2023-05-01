@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 1</title>
+</head>
+<body>
+	<h2>4의 배수일까 아닐까</h2>
+
+	<script>
+		var num4Chk = parseInt(prompt("4의배수니?"));
+		var result;
+		if(num4Chk != null){
+			if(num4Chk % 4 == 0){
+				result = '4의배수';
+			}else{
+				result = '4의배수X';
+			}
+			document.write(result);
+		}else{
+			document.write("똑바로 입력해라.");
+		}
+	</script>
+</body>
+</html>
