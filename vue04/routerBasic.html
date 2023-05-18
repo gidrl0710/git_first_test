@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Router Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>뷰 라우터 예제</h1>
+      <p>
+        <!-- <a>버튼태그로변환되어 화면에 표시 -->
+        <router-link to="/main">Main 컴포넌트로 이동</router-link>
+        <router-link to="/login">Login 컴포넌트로 이동</router-link>
+      </p>
+      <router-view></router-view> <!-- url값에 따라 갱신되는 화면영역 router-view고정태그 -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+      // 1. Main. Login 컴포넌트 내용 정의
+      var Main = { template: '<div>main이다</div>' };
+      var Login = { template: '<div>login이다</div>' };
+
+      // 2. 각 url에 해당하는 컴포넌트 등록
+      // <router-link>클릭시 그값(/main,/login)에따라 컴포넌트 지정
+      var routes = [
+        { path: '/main', component: Main },
+        { path: '/login', component: Login }
+      ];
+
+      // 3. 뷰 라우터 정의
+      var router = new VueRouter({
+        routes // 등록한 컴포넌트 담겨있음
+      });
+
+      // 2,3 합쳐도 가능
+      /* var router = new VueRouter({
+        routes : [
+          { path: '/main', component: Main },
+          { path: '/login', component: Login }
+        ]
+      }); */
+
+      // 4. 뷰 라우터를 인스턴스에 등록
+      new Vue({
+        router
+      }).$mount('#app'); //인스턴스를 화면에 강제로 붙임(el속성과비슷)
+
+    </script>
+  </body>
+</html>
