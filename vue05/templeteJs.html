@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Vue Template - Javascript Expression</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- {{ var a = 10; }}  선언문은 사용 불가능 -->
+      <!-- {{ if (true) {return 100} }} 분기 구문은 사용 불가능 -->
+
+      {{ true ? 100 : 0 }} <!-- O, 삼항 연산자로 표현 가능 -->
+
+      <p>{{ message }}</p>
+      <p>{{ message + "!!!" }}</p>
+      <p>{{ message.split('') }}</p>
+      <p>{{ message.split('').reverse() }}</p>
+      <p>{{ message.split('').reverse().join('') }}</p>
+      <p>{{ reverseFunc }}</p> <!-- 스크립트에서 computed속성으로 계산한후 최종값만 표현 위의방식보다 이게 효율적 -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue.js!'
+        },
+        computed: { // 데이터 속성을 자동으로 계산해주는 속성
+          reverseFunc: function(){
+            return this.message.split('').reverse().join('');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

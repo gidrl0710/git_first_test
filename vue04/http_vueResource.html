@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Vue Resource Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="getData">프레임워크 목록 가져오기</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script> <!-- vue리소스CDN 이용해 라이브러리 로딩 -->
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          getData: function() {
+            this.$http.get(`https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json`) // this.$http.get -> 해당 URL에서 제공하는 특정데이터 받아옴
+                                                                                                            // HTTP GET 요청을 서버에 보냄(request)
+                .then(function(response) { // 응답 받은 데이터 가져옴(response)
+                  console.log(response);
+                  console.log(JSON.parse(response.data));
+                });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
